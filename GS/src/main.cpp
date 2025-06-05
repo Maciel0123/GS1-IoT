@@ -3,10 +3,10 @@
 #include <ArduinoJson.h>
 #include <HTTPClient.h>
 
-// Definições e configurações
-#define boardLED 2 // LED onboard
 
-// LEDs externos (utilizando pinos GPIO diferentes)
+#define boardLED 2 
+
+
 #define LED_VERDE 13
 #define LED_AMARELO 12
 #define LED_VERMELHO 14
@@ -34,7 +34,7 @@ float temperatura = 0.0;
 String descricao = "";
 
 // Chave da API OpenWeather
-const String apiKey = "d63320de308f7f60f9ef14657ca8c59f";
+const String apiKey = "Chave da API";
 
 // Coordenadas de Latitude e Longitude
 const float lat = -23.5505;  // Exemplo: Latitude de São Paulo
@@ -100,7 +100,7 @@ void obterDadosClimaticos() {
     
     if (httpCode > 0) {
         String payload = http.getString();
-        JsonDocument doc; // Substitui StaticJsonDocument por JsonDocument
+        JsonDocument doc; 
         deserializeJson(doc, payload);
         
         // Dados climáticos
@@ -111,7 +111,7 @@ void obterDadosClimaticos() {
         descricao = doc["weather"][0]["description"].as<String>();  // Converte corretamente para String
         
         // Monta o JSON com os dados climáticos
-        JsonDocument dataDoc;  // Substitui StaticJsonDocument por JsonDocument
+        JsonDocument dataDoc;  
         dataDoc["Temperatura"] = temperatura;
         dataDoc["Vento"] = vento;
         dataDoc["Umidade"] = umidade;
