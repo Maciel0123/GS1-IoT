@@ -1,0 +1,79 @@
+[
+    {
+        "id": "0dbac311bddbb471",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "24052408e10d63fb",
+        "type": "mqtt in",
+        "z": "0dbac311bddbb471",
+        "name": "",
+        "topic": "Teste/Henrique",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "abd7dc524d96e8f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "418e73bb645c744a"
+            ]
+        ]
+    },
+    {
+        "id": "418e73bb645c744a",
+        "type": "debug",
+        "z": "0dbac311bddbb471",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "abd7dc524d96e8f7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "4.201.157.200",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

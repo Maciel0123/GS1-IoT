@@ -34,7 +34,7 @@ float temperatura = 0.0;
 String descricao = "";
 
 // Chave da API OpenWeather
-const String apiKey = "Chave da API";
+const String apiKey = "Chave API";
 
 // Coordenadas de Latitude e Longitude
 const float lat = -23.5505;  // Exemplo: Latitude de São Paulo
