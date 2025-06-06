@@ -1,94 +1,39 @@
-🚀 Projeto IoT com ESP32 – Monitoramento de Motocicletas via MQTT
-Este projeto tem como objetivo a implementação de um sistema de monitoramento veicular utilizando uma placa ESP32, com conectividade Wi-Fi e comunicação via MQTT, enviando dados estruturados em JSON para um broker. A solução simula a telemetria de uma motocicleta, capturando e transmitindo dados de identificação e rede.
+Projeto IoT - Monitoramento Climático
+Descrição do Projeto
+Este projeto consiste em um sistema de monitoramento climático utilizando um ESP32, que coleta dados de temperatura, umidade, vento e outros parâmetros climáticos de uma API (OpenWeatherMap). Os dados coletados são enviados para um Broker MQTT, que integra o sistema com o Node-RED para visualização e processamento. Além disso, o sistema controla LEDs (verde, amarelo e vermelho) para indicar o status do clima em tempo real.
 
-📡 Visão Geral da Solução
-A placa ESP32 representa uma motocicleta conectada que:
+Funcionalidades Principais:
+Coleta de dados climáticos: Utiliza a API OpenWeatherMap para obter informações de temperatura, umidade, pressão, vento, entre outras.
 
-Conecta-se automaticamente à rede Wi-Fi.
+Envio de dados via MQTT: Os dados coletados são enviados para um Broker MQTT, permitindo que o Node-RED receba e processe essas informações.
 
-Estabelece conexão com um broker MQTT (Mosquitto).
+Controle de LEDs: LEDs de diferentes cores são acionados com base nas condições climáticas (verde para "tudo ok", amarelo para "atenção", vermelho para "risco").
 
-Envia periodicamente um pacote JSON contendo:
+Monitoramento e visualização: Utilizando o Node-RED, as informações são visualizadas e podem ser usadas para automatizar respostas.
 
-Identificador único do dispositivo;
+Pré-requisitos
+Antes de começar, você precisará de:
 
-Modelo e placa da moto;
+Conta na API OpenWeatherMap para obter uma chave de API (substitua SUA_CHAVE_API no código).
 
-Endereço IP local.
+Node-RED instalado para a integração com o MQTT.
 
-Pisca o LED onboard como feedback visual de envio de mensagem.
+Broker MQTT (ex: Mosquitto ou qualquer outro broker configurado para receber dados).
 
-⚙️ Tecnologias e Componentes Utilizados
-Tecnologia	Descrição
-ESP32	Microcontrolador com suporte Wi-Fi integrado
-Wi-Fi	Comunicação com a internet via rede local
-MQTT	Protocolo leve de mensagens pub/sub (Mosquitto)
-ArduinoJson	Biblioteca para manipulação de objetos JSON
-PubSubClient	Cliente MQTT para ESP32/Arduino
+Extenções no Visual Studio: PlatformIO IDE, Wokwi Simulator.
 
-📦 Dependências
-ArduinoJson
+Importar Fluxos do Node-RED:
 
-PubSubClient
+Importe o arquivo flow.json para o Node-RED.
 
-Instaláveis via Gerenciador de Bibliotecas da IDE Arduino.
+No Node-RED, clique no menu de hambúrguer (no canto superior direito), depois em Import.
 
-🧱 Estrutura do Código
-Identificadores da Moto
-```
-const char* ID     = "01";
-const char* modelo = "Honda 160";
-const char* placa  = "ASD1234";
-```
-Conectividade
-Wi-Fi:
+Selecione o arquivo flow.json e clique em Import para adicionar os fluxos.
 
-```
-const char* SSID = "Wokwi-GUEST";
-const char* PASSWORD = "";
-MQTT Broker:
-```
-```
-const char* BROKER_MQTT = "191.232.37.240"; // IP da VM
-const int BROKER_PORT = 1883;
-const char* mqttUser = "iot"; //seu usario e senha mosquito broker
-const char* mqttPassword = "Fiap@2tdsvms";
-#define TOPICO_PUBLISH  "Teste/Henrique"
-```
-Fluxo de Execução
-Inicializa Wi-Fi e conecta à rede.
+Certifique-se de que o nó MQTT in está configurado corretamente para o tópico Teste/Henrique.
 
-Conecta-se ao broker MQTT com autenticação.
+Verifique a Visualização:
 
-Envia a cada 10 segundos uma mensagem JSON no tópico definido.
+Após rodar o fluxo, as mensagens enviadas pelo ESP32 aparecerão no painel de debug do Node-RED.
 
-Pisca o LED onboard como indicador visual.
-
-{
-  "ID": "01",
-  "Modelo": "Honda 160",
-  "Placa": "ASD1234",
-  "IP": "192.168.x.x"
-}
-
-📈 Monitoramento
-As mensagens publicadas podem ser visualizadas em um cliente MQTT (como MQTT Explorer ou Node-RED), conectando-se ao broker e se inscrevendo no tópico Teste/Henrique.
-
-🔄 Loop Principal
-Verifica constantemente a conectividade com Wi-Fi e o broker MQTT.
-
-Publica dados de identificação e rede no formato JSON.
-
-Mantém o envio periódico a cada 10 segundos.
-
-💡 Observações
-O LED onboard do ESP32 é usado para indicar o envio bem-sucedido da mensagem.
-
-A simulação foi testada em ambiente virtual Wokwi e VM na Azure.
-
-Ideal para projetos de telemetria, rastreamento ou gestão de frotas conectadas.
-
-Integrantes:
-  - Henrique Maciel RM556480
-  - Gabriela Moguinho Gonçalves RM556143
-  - Mariana Christina Rodrigues Fernandes RM554773
+Autor: Henrique Maciel
