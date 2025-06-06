@@ -41,4 +41,8 @@ Verifique a Visualização:
 
 Após rodar o fluxo, as mensagens enviadas pelo ESP32 aparecerão no painel de debug do Node-RED.
 
-**Autor: Henrique Maciel**
+## Integrantes
+
+Henrique Maciel
+Gabriela Moguinho
+Mariana Christina
